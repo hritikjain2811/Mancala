@@ -1,0 +1,611 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+
+FloatLayout:
+    Board:
+        id: board
+        pos: (0, root.height * 0.2)
+        size_hint: (None, None)
+        size: (root.width, root.height * 0.6)
+        canvas:
+            Color:
+                rgba: get_color_from_hex('#75757500')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (None, None)
+            size: board.size
+            pos: board.pos
+            padding: [board.width/80, 0, board.width/80, 0]
+            spacing: board.width/80
+
+            Field:
+                id: field10
+                size_hint: (1/8, 0.75)
+                pos_hint: {'top': 1}
+                is_ambar: True
+
+            GridLayout:
+                size_hint: (6/8, 1)
+                spacing: board.width/80
+                cols: 6
+
+                Field:
+                    id: field11
+                    on_release: app.move(1, 1)
+                Field:
+                    id: field12
+                    on_release: app.move(1, 2)
+                Field:
+                    id: field13
+                    on_release: app.move(1, 3)
+                Field:
+                    id: field14
+                    on_release: app.move(1, 4)
+                Field:
+                    id: field15
+                    on_release: app.move(1, 5)
+                Field:
+                    id: field16
+                    on_release: app.move(1, 6)
+
+                Field:
+                    id: field00
+                    on_release: app.move(0, 0)
+                Field:
+                    id: field01
+                    on_release: app.move(0, 1)
+                Field:
+                    id: field02
+                    on_release: app.move(0, 2)
+                Field:
+                    id: field03
+                    on_release: app.move(0, 3)
+                Field:
+                    id: field04
+                    on_release: app.move(0, 4)
+                Field:
+                    id: field05
+                    on_release: app.move(0, 5)
+
+            Field:
+                id: field06
+                size_hint: (1/8, 0.75)
+                is_ambar: True
+
+        Label:
+            pos: [field00.x + field00.width/2 - self.width/2, board.y - self.height - board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field00.seeds))
+
+        Label:
+            pos: [field01.x + field01.width/2 - self.width/2, board.y - self.height - board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field01.seeds))
+
+        Label:
+            pos: [field02.x + field02.width/2 - self.width/2, board.y - self.height - board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field02.seeds))
+
+        Label:
+            pos: [field03.x + field03.width/2 - self.width/2, board.y - self.height - board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field03.seeds))
+
+        Label:
+            pos: [field04.x + field04.width/2 - self.width/2, board.y - self.height - board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field04.seeds))
+
+        Label:
+            pos: [field05.x + field05.width/2 - self.width/2, board.y - self.height - board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field05.seeds))
+
+        Label:
+            pos: [field06.x + field06.width/2 - self.width/2, board.y - self.height - board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field06.seeds))
+
+        Label:
+            pos: [field10.x + field10.width/2 - self.width/2, board.y + board.height + board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field10.seeds))
+
+        Label:
+            pos: [field11.x + field11.width/2 - self.width/2, board.y + board.height + board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field11.seeds))
+
+        Label:
+            pos: [field12.x + field12.width/2 - self.width/2, board.y + board.height + board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field12.seeds))
+
+        Label:
+            pos: [field13.x + field13.width/2 - self.width/2, board.y + board.height + board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field13.seeds))
+
+        Label:
+            pos: [field14.x + field14.width/2 - self.width/2, board.y + board.height + board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field14.seeds))
+
+        Label:
+            pos: [field15.x + field15.width/2 - self.width/2, board.y + board.height + board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field15.seeds))
+
+        Label:
+            pos: [field16.x + field16.width/2 - self.width/2, board.y + board.height + board.width/80]
+            size_hint: (None, None)
+            size: self.texture_size
+            halign: 'center'
+            valign: 'top'
+            color: get_color_from_hex('#26a69a')
+            font_size: board.height*0.075
+            font_name: 'Rubik.ttf'
+            text: str(len(field16.seeds))
+
+    Label:
+        id: panel1
+        pos: [root.width/2 - self.width/2, board.width/80]
+        size_hint: (None, None)
+        size: self.texture_size
+        halign: 'center'
+        valign: 'bottom'
+        color: get_color_from_hex('#000000')
+        outline_color: get_color_from_hex('#26a69a')
+        outline_width: self.height/15
+        font_size: root.height*0.05
+        font_name: 'Rubik.ttf'
+        text: 'Player 1'
+
+    Label:
+        id: panel2
+        pos: [root.width/2 - self.width/2, root.height - self.height - board.width/80]
+        size_hint: (None, None)
+        size: self.texture_size
+        halign: 'center'
+        valign: 'top'
+        color: get_color_from_hex('#000000')
+        outline_color: get_color_from_hex('#26a69a')
+        outline_width: self.height/15
+        font_size: root.height*0.05
+        font_name: 'Rubik.ttf'
+        text: 'Player 2'
+
+    Btn:
+        id: new_btn
+        pos: [field06.x + field06.width/2 - self.width/2, root.height*0.9 - self.height/2]
+        size_hint: (None, None)
+        size: [field06.width*0.8, field06.width*0.8/2.15]
+        text: 'game'
+        on_release: app.temp_game_seeds = app.game_seeds; app.temp_player_AI = app.player_AI; app.view_new.open()
+
+    Btn:
+        id: info_btn
+        pos: [field10.x + field10.width/2 - self.width/2, root.height*0.1 - self.height/2]
+        size_hint: (None, None)
+        size: [field10.width*0.8, field10.width*0.8/2.15]
+        text: 'info'
+        on_release: app.view_info.open()
+
+    SoundBtn:
+        source: 'atlas://data/sound/on_normal' if app.is_sound else 'atlas://data/sound/off_normal'
+        allow_stretch: True
+        size_hint: (None, None)
+        size: [field10.width*0.8/2.5] * 2
+        pos: [board.width/80, root.height - self.height - board.width/80]
+
+        on_press:
+            self.source = 'atlas://data/sound/on_press' if app.is_sound else 'atlas://data/sound/off_press'
+            if app.is_sound and app.sound_click: app.sound_click.play()
+        on_release:
+            self.source = 'atlas://data/sound/on_normal' if app.is_sound else 'atlas://data/sound/off_normal'
+            app.is_sound = False if app.is_sound else True
+        on_touch_up:
+            self.source = 'atlas://data/sound/on_normal' if app.is_sound else 'atlas://data/sound/off_normal'
+
+    RotateBtn:
+        id: rotate_btn1
+        pos: (field10.x + field10.width/2 - self.width/2, field00.y)
+        size_hint: (None, None)
+        size: [field10.width*0.8/1.75] * 2
+        disabled: True
+        opacity: 1 if app.first_step == [True, False] and app.player_turn == 0 and app.game_seeds == 72 else 0
+        on_release: app.view_rotate.open()
+
+    RotateBtn:
+        id: rotate_btn2
+        pos: (field06.x + field06.width/2 - self.width/2, field16.y + field16.height - self.height)
+        size_hint: (None, None)
+        size: [field10.width*0.8/1.75] * 2
+        disabled: True
+        opacity: 1 if app.first_step == [False, True] and app.player_turn == 1 and app.game_seeds == 72 else 0
+        on_release: app.rotate_board() if app.player_AI else app.view_rotate.open()
+
+
+<Field>:
+    disabled: True
+    canvas:
+        Color:
+            rgba: self.bg_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: self.color
+        Line:
+            width: app.seed_size[0]/25
+            rectangle: (self.x, self.y, self.width, self.height)
+    on_press:
+        self.color = get_color_from_hex('#26a69a')
+        self.bg_color = get_color_from_hex('#26a69a40')
+    on_release:
+        self.color = get_color_from_hex('#26a69a80')
+        self.bg_color = get_color_from_hex('#26a69a00')
+    on_touch_up:
+        self.color = get_color_from_hex('#26a69a80')
+        self.bg_color = get_color_from_hex('#26a69a00')
+
+
+<Seed>:
+    size_hint: (None, None)
+    size: app.seed_size
+    canvas:
+        Color:
+            rgba: get_color_from_hex(self.color + "40")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: get_color_from_hex(self.color)
+        Line:
+            width: self.width/25
+            cap: 'square'
+            rectangle: (self.x, self.y, self.width, self.height)
+
+
+<Btn>:
+    canvas.before:
+        Color:
+            rgba: root.color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: root.text_color
+        Line:
+            width: app.seed_size[0]/25
+            cap: 'square'
+            rectangle: (self.x, self.y, self.width, self.height)
+
+    on_press:
+        root.color = get_color_from_hex('#26a69a80')
+        if app.is_sound and app.sound_click: app.sound_click.play()
+    on_release:
+        root.color = get_color_from_hex('#26a69a40')
+    on_touch_up:
+        root.color = get_color_from_hex('#26a69a40')
+
+    Label:
+        pos: (root.x + (root.width - self.width)/2, root.y + (root.height - self.height)/2)
+        size_hint: (None, None)
+        size: self.texture_size
+        color: root.text_color
+        font_size: root.height/2.25
+        font_name: 'Rubik.ttf'
+        text: root.text
+
+
+<RotateBtn>:
+    source: 'atlas://data/rotate/normal'
+    allow_stretch: True
+
+    on_press:
+        self.source = 'atlas://data/rotate/press'
+        if app.is_sound and app.sound_click: app.sound_click.play()
+    on_release:
+        self.source = 'atlas://data/rotate/normal'
+    on_touch_up:
+        self.source = 'atlas://data/rotate/normal'
+
+
+<ScrollableLabel>:
+    bar_color: get_color_from_hex('#26a69ae6')
+    bar_inactive_color: get_color_from_hex('#26a69a33')
+
+    Label:
+        size_hint_y: None
+        height: self.texture_size[1]
+        padding: (10, 10)
+        text_size: self.width, None
+        valign: 'middle'
+        halign: 'center'
+        markup: True
+        font_name: 'Rubik.ttf'
+        color: get_color_from_hex('#26a69a')
+        font_size: min(root.width, root.height)/12
+        text: root.text
+
+
+<ViewInfoBig>:
+    text: "[size=" + str(int(min(self.width, self.height)/15)) + "]MANCALA[/size][size=" + str(int(min(self.width, self.height)/20)) + "]\n\nMancala is an ancient family of board games. This version is known as two-rank Mancala and also known as Kalah (Bantumi).\n\nYour fields on the board are on the bottom side. Your store (kalah) is the big field on the right edge. Chose a field to pick up all seeds. Moving counter-clockwise, the game now deposits one of the seeds in each field until the seeds run out.\n\nIf you run into your own store, deposit one seed in it. If you run into your opponent's store, skip it. If the last seed you drop is in your own store, you get a bonus turn. If the last seed you drop is in an empty field on your side, you capture that seed and any seeds in the field directly opposite.\n\nWhen playing with 72 seeds, the \"rule of the pie\" operates: after the first move in the game, the other player can rotate the board.\n\nThe game ends when all six fields on one side of the board are empty. The player who still has seeds on his side of the board when the game ends captures all of those seeds.\n\nCount all the seeds in each store. The winner is the player with the most seeds.[/size][size=" + str(int(min(self.width, self.height)/30)) + "]\n\n* * *\n(c) Anton Bezdolny, 2020  / ver. 2.2 /[/size]"
+    BoxLayout:
+        orientation: 'vertical'
+        pos: root.pos
+        size: root.size
+        padding: [10, 10, 10, 10]
+        spacing: 10
+
+        ScrollableLabel:
+            id: scroll_label
+            size_hint: (1, 0.85)
+            text: root.text
+
+        Btn:
+            size_hint: (1, 0.15)
+            text: 'OK'
+            on_release: scroll_label.scroll_y = 1; root.parent.dismiss()
+
+
+<ViewInfo>:
+    BoxLayout:
+        orientation: 'vertical'
+        pos: root.pos
+        size: root.size
+        padding: [10, 10, 10, 10]
+
+        Label:
+            size_hint: (1, 0.85)
+            text_size: self.size
+            valign: 'middle'
+            halign: 'center'
+            text: root.text
+            markup: True
+            font_name: 'Rubik.ttf'
+            color: get_color_from_hex('#26a69a')
+            font_size: min(root.width, root.height)/14
+
+        Btn:
+            size_hint: (1, 0.15)
+            text: 'OK'
+            on_release: root.parent.dismiss()
+
+
+<ViewChoice>:
+    BoxLayout:
+        orientation: 'vertical'
+        pos: root.pos
+        size: root.size
+        padding: [10, 10, 10, 10]
+
+        Label:
+            size_hint: (1, 0.85)
+            text_size: self.size
+            valign: 'middle'
+            halign: 'center'
+            text: root.text
+            font_name: 'Rubik.ttf'
+            color: get_color_from_hex('#26a69a')
+            font_size: min(root.width, root.height)/14
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.15)
+            spacing: 10
+
+            Btn:
+                id: yes_btn
+                size_hint: (0.5, 1)
+                text: 'Yes'
+                on_release: root.parent.dismiss()
+
+            Btn:
+                id: no_btn
+                size_hint: (0.5, 1)
+                text: 'No'
+                on_release: root.parent.dismiss()
+
+
+<SelectBox>:
+    source: 'atlas://data/check/select' if root.select else 'atlas://data/check/unselect'
+    on_press:
+        self.source = 'atlas://data/check/select_press' if root.select else 'atlas://data/check/unselect_press'
+        if app.is_sound and app.sound_click: app.sound_click.play()
+    on_release:
+        self.source = 'atlas://data/check/select' if root.select else 'atlas://data/check/unselect'
+    on_touch_up:
+        self.source = 'atlas://data/check/select' if root.select else 'atlas://data/check/unselect'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        pos: root.pos
+        size: root.size
+        spacing: 10
+
+        Image:
+            id: chbox
+            size_hint: (0.25, 1)
+            allow_stretch: True
+            source: root.source
+
+        Label:
+            size_hint: (0.75, 1)
+            text_size: self.size
+            valign: 'middle'
+            halign: 'left'
+            text: root.text
+            font_name: 'Rubik.ttf'
+            color: get_color_from_hex('#26a69a')
+            font_size: chbox.height * 0.4
+
+
+<ViewMode>:
+    BoxLayout:
+        orientation: 'vertical'
+        pos: root.pos
+        size: root.size
+        padding: [10, 10, 10, 10]
+
+        Label:
+            size_hint: (1, 0.4)
+            text_size: self.size
+            valign: 'middle'
+            halign: 'center'
+            text: root.text
+            font_name: 'Rubik.ttf'
+            color: get_color_from_hex('#26a69a')
+            font_size: min(root.width, root.height)/14
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.3)
+
+            Widget:
+                size_hint: (0.1, 1)
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.425, 1)
+
+                SelectBox:
+                    size_hint: (1, 0.425)
+                    text: 'Single mode'
+                    select: True if app.temp_player_AI else False
+                    on_release: app.temp_player_AI = True
+
+                Widget:
+                    size_hint: (1, 0.15)
+
+                SelectBox:
+                    size_hint: (1, 0.425)
+                    text: 'Hotseat'
+                    select: True if not app.temp_player_AI else False
+                    on_release: app.temp_player_AI = False
+
+            Widget:
+                size_hint: (0.05, 1)
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (0.425, 1)
+
+                SelectBox:
+                    size_hint: (1, 0.425)
+                    text: '48 seeds'
+                    select: True if app.temp_game_seeds == 48 else False
+                    on_release: app.temp_game_seeds = 48
+
+                Widget:
+                    size_hint: (1, 0.15)
+
+                SelectBox:
+                    size_hint: (1, 0.425)
+                    text: '72 seeds'
+                    select: True if app.temp_game_seeds == 72 else False
+                    on_release: app.temp_game_seeds = 72
+
+        Widget:
+            size_hint: (1, 0.15)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.15)
+            spacing: 10
+
+            Btn:
+                id: yes_btn
+                size_hint: (0.5, 1)
+                text: 'Yes'
+                on_release: root.parent.dismiss()
+
+            Btn:
+                id: no_btn
+                size_hint: (0.5, 1)
+                text: 'No'
+                on_release: root.parent.dismiss()
